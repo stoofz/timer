@@ -1,6 +1,7 @@
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
+  console.log('Time value required');
   return;
 }
 
@@ -10,5 +11,7 @@ for (const timeValue of args) {
     continue;
   }
 
-  setTimeout(() => process.stdout.write('\x07'), timeValue * 1000);
+  setTimeout(() => {
+    process.stdout.write('\x07'); console.log(`Beep at ${timeValue} seconds`);
+  }, timeValue * 1000);
 }
